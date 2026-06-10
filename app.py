@@ -1,139 +1,101 @@
 import pandas as pd
 import streamlit as st
 
-# -------------------------------------------------------------
-# 1. DATABASE OF POPULAR CREDIT CARDS (Multipliers & Fees)
-# -------------------------------------------------------------
-CARD_DATABASE = {
-    "Amex Gold": {
-        "Groceries": 4,
-        "Dining": 4,
-        "Travel": 3,
-        "Gas": 1,
-        "Other": 1,
-        "Fee": 250,
-    },
-    "Chase Sapphire Preferred": {
-        "Groceries": 1,
-        "Dining": 3,
-        "Travel": 2,
-        "Gas": 1,
-        "Other": 1,
-        "Fee": 95,
-    },
-    "Citi Custom Cash": {
-        "Groceries": 5,
-        "Dining": 1,
-        "Travel": 1,
-        "Gas": 1,
-        "Other": 1,
-        "Fee": 0,
-    },  # Simplification: 5x on top category
-    "Capital One SavorOne": {
-        "Groceries": 3,
-        "Dining": 3,
-        "Travel": 1,
-        "Gas": 1,
-        "Other": 1,
-        "Fee": 0,
-    },
-    "Catch-All 2% Card (e.g., Citi Double Cash)": {
-        "Groceries": 2,
-        "Dining": 2,
-        "Travel": 2,
-        "Gas": 2,
-        "Other": 2,
-        "Fee": 0,
-    },
-}
+from card_data import load_cards
+from engine import evaluate_wallet, normalize_category, recommend_additions
 
-# -------------------------------------------------------------
-# 2. APP UI SETUP
-# -------------------------------------------------------------
 st.set_page_config(page_title="CreditCrunch - Credit Card Optimizer", layout="wide")
 st.title("💳 CreditCrunch")
 st.subheader("Optimize your spending. Maximize your points.")
 st.write("---")
 
-# Sidebar - User Inventory
+
+@st.cache_data(ttl=3600)
+def get_cards():
+    return load_cards()
+
+
+all_cards, data_source = get_cards()
+cards_by_name = {c["name"]: c for c in all_cards}
+
+# -------------------------------------------------------------
+# SIDEBAR — wallet + preferences
+# -------------------------------------------------------------
 st.sidebar.header("Your Current Wallet")
 user_current_cards = st.sidebar.multiselect(
     "Select the cards you currently own:",
-    options=list(CARD_DATABASE.keys()),
-    default=["Chase Sapphire Preferred"],
+    options=sorted(cards_by_name),
+    default=["Chase Sapphire Preferred"] if "Chase Sapphire Preferred" in cards_by_name else [],
 )
 
-point_value = st.sidebar.slider(
-    "Estimated Point Value (Cents per Point)", 1.0, 2.0, 1.25, step=0.25
+preference = st.sidebar.radio(
+    "Reward preference for recommendations:",
+    ["Both", "Cashback only", "Points & Miles only"],
 )
+
+if data_source == "supabase":
+    st.sidebar.caption(f"📡 Live rewards matrix from Supabase · {len(all_cards)} cards")
+else:
+    st.sidebar.caption(f"📦 Offline snapshot (Supabase unreachable) · {len(all_cards)} cards")
+
+wallet = [cards_by_name[name] for name in user_current_cards]
+
+if preference == "Cashback only":
+    candidates = [c for c in all_cards if c["reward_currency"] == "Cashback"]
+elif preference == "Points & Miles only":
+    candidates = [c for c in all_cards if c["reward_currency"] != "Cashback"]
+else:
+    candidates = all_cards
 
 # -------------------------------------------------------------
-# 3. FILE UPLOADER & PROCESSING
+# FILE UPLOADER & PROCESSING
 # -------------------------------------------------------------
-uploaded_file = st.file_uploader(
-    "Upload your credit card statement CSV", type=["csv"]
-)
+uploaded_file = st.file_uploader("Upload your credit card statement CSV", type=["csv"])
 
-if uploaded_file is not None and len(user_current_cards) > 0:
-    # Load and display data
+if uploaded_file is not None and wallet:
     df = pd.read_csv(uploaded_file)
     st.success("CSV Successfully Loaded!")
 
-    # Calculate Spend Breakdown
-    spend_summary = df.groupby("Category")["Amount"].sum().reset_index()
+    df["Reward Category"] = df["Category"].map(normalize_category)
+    spend_by_category = df.groupby("Reward Category")["Amount"].sum().to_dict()
 
     col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("### 📊 Your Spending Breakdown")
-        st.dataframe(spend_summary.style.format({"Amount": "${:,.2f}"}))
-
-    # -------------------------------------------------------------
-    # 4. CALCULATION ENGINE
-    # -------------------------------------------------------------
-    # Calculate what they ACTUALLY earned with their current stack
-    total_current_points = 0
-    for idx, row in df.iterrows():
-        cat = row["Category"]
-        amt = row["Amount"]
-
-        # Find the best multiplier among the user's CURRENT cards
-        best_current_mult = max(
-            [CARD_DATABASE[card].get(cat, 1) for card in user_current_cards]
+        spend_summary = (
+            df.groupby("Reward Category")["Amount"].sum().reset_index()
+            .sort_values("Amount", ascending=False)
         )
-        total_current_points += amt * best_current_mult
-
-    # Calculate what they COULD earn with the absolute optimal card in the DB for each category
-    total_optimal_points = 0
-    optimal_card_choices = []
-
-    for idx, row in df.iterrows():
-        cat = row["Category"]
-        amt = row["Amount"]
-
-        # Find the absolute best card in the database for this specific transaction
-        best_db_card = max(
-            CARD_DATABASE.keys(), key=lambda k: CARD_DATABASE[k].get(cat, 1)
-        )
-        best_db_mult = CARD_DATABASE[best_db_card].get(cat, 1)
-
-        total_optimal_points += amt * best_db_mult
-        optimal_card_choices.append(best_db_card)
-
-    current_value = (total_current_points * (point_value / 100)) - sum(
-        [CARD_DATABASE[c]["Fee"] / 12 for c in user_current_cards]
-    )  # rough monthly fee offset
-    optimal_value = total_optimal_points * (point_value / 100)
+        st.dataframe(spend_summary.style.format({"Amount": "${:,.2f}"}), hide_index=True)
+        st.bar_chart(spend_summary.set_index("Reward Category")["Amount"])
 
     # -------------------------------------------------------------
-    # 5. RESULTS & RECOMMENDATIONS DASHBOARD
+    # CALCULATION ENGINE (cap-aware)
     # -------------------------------------------------------------
+    current = evaluate_wallet(spend_by_category, wallet)
+    # Optimal = best achievable using any cards in the matrix (respecting caps),
+    # filtered by the user's reward preference.
+    optimal = evaluate_wallet(spend_by_category, candidates)
+
     with col2:
         st.markdown("### 🎯 Your CreditCrunch Metrics")
-
-        # Score calculation (Current Points / Optimal Points)
-        score = min(int((total_current_points / total_optimal_points) * 100), 100)
+        score = min(int((current["value_usd"] / optimal["value_usd"]) * 100), 100) if optimal["value_usd"] else 100
         st.metric(label="Optimization Score", value=f"{score}%")
+
+        m1, m2, m3 = st.columns(3)
+        m1.metric("Current Value / mo", f"${current['value_usd']:,.2f}")
+        m2.metric("Optimal Value / mo", f"${optimal['value_usd']:,.2f}")
+        m3.metric(
+            "Missed Value / mo",
+            f"${optimal['value_usd'] - current['value_usd']:,.2f}",
+            delta=f"-${(optimal['value_usd'] - current['value_usd']) * 12:,.0f}/yr",
+            delta_color="inverse",
+        )
+        st.caption(
+            f"Current wallet annual fees: ${current['monthly_fees'] * 12:,.0f}/yr "
+            f"(${current['monthly_fees']:,.2f}/mo)"
+        )
 
         if score >= 90:
             st.balloons()
@@ -146,35 +108,89 @@ if uploaded_file is not None and len(user_current_cards) > 0:
     st.write("---")
     st.markdown("### 💡 Recommended Strategy")
 
-    rec_col1, rec_col2 = st.columns(2)
+    recs = recommend_additions(spend_by_category, wallet, candidates, top_n=3)
+    recs = [r for r in recs if r["gross_gain_monthly"] > 0.005]
 
-    with rec_col1:
-        st.write(f"**Current Monthly Earnings:** {int(total_current_points):,} Points")
-        st.write(f"**Potential Monthly Earnings:** {int(total_optimal_points):,} Points")
+    if not recs:
+        st.success("✨ Your current stack is already optimal for this statement period!")
+    else:
+        for i, rec in enumerate(recs):
+            card = rec["card"]
+            with st.container(border=True):
+                header = f"{'✨ Top Recommendation' if i == 0 else f'#{i + 1}'}: **{card['name']}**"
+                st.markdown(header)
+                fee_label = f"${card['annual_fee']:,.0f}/yr fee" if card["annual_fee"] else "no annual fee"
+                st.write(
+                    f"Adding this card earns you **${rec['gross_gain_monthly']:,.2f}/mo** more "
+                    f"(**${rec['net_gain_monthly'] * 12:,.2f}/yr** after its {fee_label})."
+                )
+                sub = card.get("signup_bonus")
+                if sub and sub.get("estimated_value_usd"):
+                    st.write(
+                        f"🎁 Current sign-up bonus: **{sub['amount']:,.0f} {sub['unit']}** "
+                        f"(~${sub['estimated_value_usd']:,.0f}) after spending "
+                        f"${sub.get('min_spend') or 0:,.0f} in {sub.get('window_days') or 90} days."
+                    )
+                if card.get("credits_notes"):
+                    st.caption(card["credits_notes"])
 
-    with rec_col2:
-        missed_points = int(total_optimal_points - total_current_points)
-        st.write(f"❌ **Missed Points:** {missed_points:,} points per month")
-
-        # Basic Recommendation Engine Logic
-        df["Optimal_Card"] = optimal_card_choices
-        top_suggested_card = (
-            df[~df["Optimal_Card"].isin(user_current_cards)]["Optimal_Card"]
-            .mode()
-            .to_list()
-        )
-
-        if top_suggested_card:
-            st.markdown(
-                f"### ✨ Top Recommendation: Add **{top_suggested_card[0]}** to your wallet!"
+    # -------------------------------------------------------------
+    # CARD-PER-CATEGORY CHEAT SHEET
+    # -------------------------------------------------------------
+    st.write("---")
+    st.markdown("### 🗂️ Which card to pull out (your current wallet)")
+    rows = []
+    for category, result in sorted(current["by_category"].items()):
+        for slice_ in result["allocation"]:
+            rows.append(
+                {
+                    "Category": category,
+                    "Use Card": slice_["card"],
+                    "Earn Rate": f"{slice_['multiplier']:g}x",
+                    "Monthly Spend": slice_["amount"],
+                }
             )
-            st.write(
-                f"This card matches your heavy spend categories perfectly based on your statement analysis."
-            )
-        else:
-            st.markdown("### ✨ Your current stack is optimal for this statement period!")
+    cheat = pd.DataFrame(rows)
+    st.dataframe(cheat.style.format({"Monthly Spend": "${:,.2f}"}), hide_index=True)
+    st.caption(
+        "When a category shows two cards, the first card's bonus cap runs out "
+        "mid-month — switch to the second card after that."
+    )
 
-elif len(user_current_cards) == 0:
+elif not wallet:
     st.info("Please select at least one card in the sidebar to begin analysis.")
 else:
     st.info("Please upload a transaction CSV file to see your optimization strategy.")
+
+# -------------------------------------------------------------
+# CARD DATABASE EXPLORER
+# -------------------------------------------------------------
+with st.expander("🔍 Browse the full card database"):
+    rows = []
+    for card in all_cards:
+        bonus_rates = ", ".join(
+            f"{cat} {r['multiplier']:g}x" + (" (rotating)" if r["is_rotating"] else "")
+            for cat, r in sorted(card["earn_rates"].items())
+            if cat != "Other" and r["multiplier"] > card["earn_rates"]["Other"]["multiplier"]
+        )
+        sub = card.get("signup_bonus")
+        rows.append(
+            {
+                "Card": card["name"],
+                "Issuer": card["issuer"],
+                "Annual Fee": card["annual_fee"],
+                "Currency": card["reward_currency"],
+                "Bonus Categories": bonus_rates or "—",
+                "Base Rate": f"{card['earn_rates']['Other']['multiplier']:g}x",
+                "Sign-Up Bonus": (
+                    f"{sub['amount']:,.0f} {sub['unit']} (~${sub['estimated_value_usd']:,.0f})"
+                    if sub and sub.get("estimated_value_usd")
+                    else "—"
+                ),
+                "Data As Of": card.get("as_of") or "—",
+            }
+        )
+    st.dataframe(
+        pd.DataFrame(rows).style.format({"Annual Fee": "${:,.0f}"}),
+        hide_index=True,
+    )

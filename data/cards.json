@@ -1,0 +1,392 @@
+[
+  {
+    "name": "Citi Double Cash Card",
+    "issuer": "Citi",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Hotels, car rentals, attractions booked via Citi Travel portal only"},
+      {"category": "Other", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "1% when you buy + 1% as you pay; earned as ThankYou Points"}
+    ],
+    "signup_bonus": {"amount": 200, "unit": "USD", "min_spend": 1500, "window_days": 180, "estimated_value_usd": 200},
+    "credits_notes": "Bonus fulfilled as 20,000 ThankYou Points redeemable for $200; no annual fee; 0% intro APR on balance transfers",
+    "source_urls": ["https://www.citi.com/credit-cards/citi-double-cash-credit-card", "https://money.usnews.com/credit-cards/citi/citi-double-cash-card"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Citi Custom Cash Card",
+    "issuer": "Citi",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Groceries", "multiplier": 5, "cap_amount": 500, "cap_period": "monthly", "notes": "Automatic 5% on top eligible spend category each billing cycle (modeled as groceries, the most common choice); $500/billing cycle cap, then 1%"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": null,
+    "credits_notes": "CLOSED to new applications as of 2026-05-28 (product change from another Citi card still possible); existing cardholders keep earning; rewards earned as ThankYou Points",
+    "source_urls": ["https://www.nerdwallet.com/credit-cards/news/citi-custom-cash-closed-to-new-applications", "https://frequentmiler.com/citi-custom-cash-card-is-almost-certainly-being-discontinued/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Chase Freedom Flex",
+    "issuer": "Chase",
+    "annual_fee": 0,
+    "reward_currency": "Chase UR",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Online Retail", "multiplier": 5, "cap_amount": 1500, "cap_period": "quarterly", "is_rotating": true, "notes": "rotating quarterly category (Q2 2026: Amazon & Chase Travel); activation required; $1,500/quarter combined cap, then 1%"},
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Includes eligible delivery services; 5x on travel booked through Chase Travel portal"},
+      {"category": "Drugstores", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 20000, "unit": "points", "min_spend": 500, "window_days": 90, "estimated_value_usd": 200},
+    "credits_notes": "Points are Ultimate Rewards; worth more if pooled with a Sapphire card; cell phone protection included",
+    "source_urls": ["https://www.chase.com/personal/credit-cards/freedom/flex", "https://thepointsguy.com/credit-cards/activate-chase-freedom-5x-earnings/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Capital One Savor Cash Rewards",
+    "issuer": "Capital One",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Unlimited; also 3% on entertainment (8% via Capital One Entertainment)"},
+      {"category": "Groceries", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Excludes superstores like Walmart and Target"},
+      {"category": "Streaming", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Popular streaming services"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": "5% on hotels/rental cars booked through Capital One Travel"}
+    ],
+    "signup_bonus": {"amount": 250, "unit": "USD", "min_spend": 500, "window_days": 90, "estimated_value_usd": 250},
+    "credits_notes": "Bonus raised from $200 to $250 effective 2026-06-09; formerly SavorOne; no foreign transaction fees",
+    "source_urls": ["https://www.capitalone.com/credit-cards/savor/", "https://www.nerdwallet.com/credit-cards/news/capital-one-june-2026-bonuses-savor-and-student-cards"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Blue Cash Preferred Card from American Express",
+    "issuer": "American Express",
+    "annual_fee": 95,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Groceries", "multiplier": 6, "cap_amount": 6000, "cap_period": "annual", "notes": "U.S. supermarkets; $6,000/yr cap, then 1%"},
+      {"category": "Streaming", "multiplier": 6, "cap_amount": null, "cap_period": null, "notes": "Select U.S. streaming subscriptions, unlimited"},
+      {"category": "Gas", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "U.S. gas stations"},
+      {"category": "Transit", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Taxis, rideshare, parking, tolls, trains, buses"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 250, "unit": "USD", "min_spend": 3000, "window_days": 180, "estimated_value_usd": 250},
+    "credits_notes": "$0 intro annual fee first year, then $95; welcome offers vary (reported as high as $300); monthly Disney Bundle streaming credit (2026 reports cite up to $120/yr); cash back delivered as Reward Dollars",
+    "source_urls": ["https://www.americanexpress.com/us/credit-cards/card/blue-cash-preferred/", "https://upgradedpoints.com/credit-cards/reviews/american-express-blue-cash-preferred/welcome-offer-history/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Blue Cash Everyday Card from American Express",
+    "issuer": "American Express",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Groceries", "multiplier": 3, "cap_amount": 6000, "cap_period": "annual", "notes": "U.S. supermarkets; $6,000/yr cap per category, then 1%"},
+      {"category": "Gas", "multiplier": 3, "cap_amount": 6000, "cap_period": "annual", "notes": "U.S. gas stations; $6,000/yr cap, then 1%"},
+      {"category": "Online Retail", "multiplier": 3, "cap_amount": 6000, "cap_period": "annual", "notes": "U.S. online retail purchases; $6,000/yr cap, then 1%"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 200, "unit": "USD", "min_spend": 2000, "window_days": 180, "estimated_value_usd": 200},
+    "credits_notes": "Welcome offers vary ('as high as $200'); periodic Disney Bundle/Home Chef statement credit offers; cash back as Reward Dollars",
+    "source_urls": ["https://www.americanexpress.com/us/credit-cards/card/blue-cash-everyday/", "https://upgradedpoints.com/news/amex-blue-cash-everyday-new-welcome-offer/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Discover it Cash Back",
+    "issuer": "Discover",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 5, "cap_amount": 1500, "cap_period": "quarterly", "is_rotating": true, "notes": "rotating quarterly category (Q2 2026: restaurants & home improvement stores); activation required; $1,500/quarter combined cap, then 1%"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": null,
+    "credits_notes": "No traditional SUB; instead unlimited Cashback Match: all cash back earned in first year is doubled at year end (effectively up to 10% in rotating categories year one); no foreign transaction fees",
+    "source_urls": ["https://www.discover.com/credit-cards/cash-back/cashback-calendar.html", "https://www.nerdwallet.com/credit-cards/news/discover-5-percent-bonus-categories-Q2-2026"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Wells Fargo Active Cash Card",
+    "issuer": "Wells Fargo",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Other", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Unlimited flat 2% cash rewards on all purchases"}
+    ],
+    "signup_bonus": {"amount": 200, "unit": "USD", "min_spend": 500, "window_days": 90, "estimated_value_usd": 200},
+    "credits_notes": "0% intro APR 12 months on purchases and qualifying balance transfers; cell phone protection",
+    "source_urls": ["https://www.nerdwallet.com/credit-cards/reviews/wells-fargo-active-cash", "https://awardwallet.com/credit-cards/wells-fargo-rewards/active-cash-card-offer/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "U.S. Bank Cash+ Visa Signature Card",
+    "issuer": "U.S. Bank",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Streaming", "multiplier": 5, "cap_amount": 2000, "cap_period": "quarterly", "notes": "Choose-your-own: pick two 5% categories each quarter (TV/internet/streaming and utilities are most common); $2,000/quarter combined cap, then 1%; quarterly selection required"},
+      {"category": "Groceries", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Choose one unlimited 2% everyday category (grocery stores, gas stations/EV charging, or restaurants)"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 250, "unit": "USD", "min_spend": 1000, "window_days": 90, "estimated_value_usd": 250},
+    "credits_notes": "$250 bonus confirmed back in effect since May 2026 (oscillates $200-$250); 0% intro APR 15 billing cycles; must select categories each quarter or earn only 1%",
+    "source_urls": ["https://www.usbank.com/credit-cards/cash-plus-visa-signature-credit-card.html", "https://www.doctorofcredit.com/u-s-bank-cash-200-sign-up-bonus-after-1000-in-spend/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "U.S. Bank Smartly Visa Signature Card",
+    "issuer": "U.S. Bank",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Other", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Base 2% unlimited on everything; tiered up to 4% with U.S. Bank deposits (see card notes)"}
+    ],
+    "signup_bonus": null,
+    "credits_notes": "Tiered structure: 2.5% with $10k-$49,999 qualifying balance, 3% with $50k-$99,999, 4% with $100k+; for post-April-2025 applicants the qualifying balance must be in Bank Smartly Checking/Safe Debit accounts (plus a Smartly Savings account opened); the above-2% bonus is capped at $10,000 in purchases per billing cycle and excludes some categories (e.g. education, taxes, insurance per 2025 changes); no traditional sign-up bonus",
+    "source_urls": ["https://www.usbank.com/credit-cards/bank-smartly-visa-signature-credit-card.html", "https://www.nerdwallet.com/article/credit-cards/u-s-bank-smartly-overhaul-makes-it-harder-to-earn-higher-rates"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Bank of America Customized Cash Rewards Credit Card",
+    "issuer": "Bank of America",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Online Retail", "multiplier": 3, "cap_amount": 2500, "cap_period": "quarterly", "notes": "Choose-your-own 3% category (online shopping modeled, the most popular; other options: dining, gas/EV, travel, drugstores, home improvement); cap is $2,500/quarter combined with the 2% tier, then 1%; category changeable monthly"},
+      {"category": "Groceries", "multiplier": 2, "cap_amount": 2500, "cap_period": "quarterly", "notes": "Grocery stores and wholesale clubs; shares $2,500/quarter combined cap with choice category"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 200, "unit": "USD", "min_spend": 1000, "window_days": 90, "estimated_value_usd": 200},
+    "credits_notes": "Current promo: 6% (instead of 3%) in choice category for the first year for new accounts; Preferred Rewards members earn 25%-75% more (up to 5.25% choice / 3.5% grocery); 0% intro APR 15 billing cycles",
+    "source_urls": ["https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/", "https://www.nerdwallet.com/credit-cards/reviews/bankofamerica-cash-rewards"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Prime Visa (Chase Amazon Prime Visa)",
+    "issuer": "Chase",
+    "annual_fee": 0,
+    "reward_currency": "Cashback",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Online Retail", "multiplier": 5, "cap_amount": null, "cap_period": null, "notes": "Unlimited 5% at Amazon.com, Amazon Fresh, and Whole Foods Market with eligible Prime membership; 5% on Chase Travel purchases"},
+      {"category": "Gas", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Dining", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Transit", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Local transit and commuting, including rideshare"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 150, "unit": "USD", "min_spend": 0, "window_days": 0, "estimated_value_usd": 150},
+    "credits_notes": "Bonus is a $150 Amazon gift card loaded instantly upon approval, no spend required (verified June 2026, timed around Prime Day); requires active Prime membership ($139/yr, not included); 10% back on rotating Amazon product offers; no foreign transaction fees",
+    "source_urls": ["https://creditcards.chase.com/cash-back-credit-cards/amazon-prime-rewards", "https://thepointsguy.com/credit-cards/prime-visa-current-offer/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Chase Sapphire Preferred",
+    "issuer": "Chase",
+    "annual_fee": 95,
+    "reward_currency": "Chase Ultimate Rewards",
+    "point_value_cents": 2.05,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Restaurants incl. eligible delivery"},
+      {"category": "Groceries", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Online grocery purchases (excludes Target, Walmart, wholesale clubs)"},
+      {"category": "Streaming", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Select streaming services"},
+      {"category": "Travel", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "All other travel; 5x on travel booked through Chase Travel"},
+      {"category": "Gas", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "New category (gas + EV charging, plus 3x vacation rentals like Airbnb/Vrbo) effective with June 15, 2026 card refresh; 1x before then"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 75000, "unit": "points", "min_spend": 5000, "window_days": 90, "estimated_value_usd": 1538},
+    "credits_notes": "Anniversary Chase Travel hotel credit doubling from $50 to $100 with 6/15/2026 refresh; adds $120 Global Entry/TSA PreCheck credit and free year of Apple TV+; 10% anniversary points bonus and 1:1 Hyatt transfers (drops to 4:3) end for applicants on/after 6/15/2026; DoorDash DashPass perks",
+    "source_urls": ["https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred", "https://thepointsguy.com/news/chase-sapphire-preferred-refresh-2026/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Chase Sapphire Reserve",
+    "issuer": "Chase",
+    "annual_fee": 795,
+    "reward_currency": "Chase Ultimate Rewards",
+    "point_value_cents": 2.05,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 4, "cap_amount": null, "cap_period": null, "notes": "Flights and hotels booked direct; 8x on all purchases through Chase Travel incl. The Edit"},
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Restaurants worldwide incl. eligible delivery"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 150000, "unit": "points", "min_spend": 6000, "window_days": 90, "estimated_value_usd": 3075},
+    "credits_notes": "All-time-high 150k offer verified live but ends 9am ET 6/15/2026. $300 annual travel credit; up to $500/yr The Edit hotel credit ($250 semiannual); $300 dining credit at Sapphire Reserve Exclusive Tables; $250 Apple TV+/Apple Music; $120 Lyft; Global Entry/TSA credit; Priority Pass + Chase Sapphire Lounges; $195 per authorized user",
+    "source_urls": ["https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve", "https://thepointsguy.com/credit-cards/chase-sapphire-reserve-current-offer/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Capital One Venture Rewards",
+    "issuer": "Capital One",
+    "annual_fee": 95,
+    "reward_currency": "Capital One Miles",
+    "point_value_cents": 1.85,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "5x on hotels, vacation rentals and rental cars booked via Capital One Travel; otherwise flat 2x"},
+      {"category": "Other", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Unlimited 2x on every purchase"}
+    ],
+    "signup_bonus": {"amount": 75000, "unit": "points", "min_spend": 4000, "window_days": 90, "estimated_value_usd": 1388},
+    "credits_notes": "Up to $120 Global Entry/TSA PreCheck credit; no foreign transaction fees",
+    "source_urls": ["https://www.capitalone.com/credit-cards/venture/", "https://awardwallet.com/credit-cards/capital-one-rewards/venture-card-bonus/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Capital One Venture X Rewards",
+    "issuer": "Capital One",
+    "annual_fee": 395,
+    "reward_currency": "Capital One Miles",
+    "point_value_cents": 1.85,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "10x hotels/rental cars and 5x flights/vacation rentals booked via Capital One Travel; otherwise flat 2x"},
+      {"category": "Other", "multiplier": 2, "cap_amount": null, "cap_period": null, "notes": "Unlimited 2x on every purchase"}
+    ],
+    "signup_bonus": {"amount": 75000, "unit": "points", "min_spend": 4000, "window_days": 90, "estimated_value_usd": 1388},
+    "credits_notes": "$300 annual Capital One Travel credit; 10,000-mile anniversary bonus (~$185); Capital One Lounge + Priority Pass access; Global Entry/TSA credit",
+    "source_urls": ["https://www.capitalone.com/credit-cards/venture-x/", "https://www.nerdwallet.com/travel/learn/capital-one-venture-x-card-worth-annual-fee"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "American Express Gold Card",
+    "issuer": "American Express",
+    "annual_fee": 325,
+    "reward_currency": "Amex Membership Rewards",
+    "point_value_cents": 2.0,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 4, "cap_amount": 50000, "cap_period": "annual", "notes": "Restaurants worldwide; 1x after $50k/calendar year"},
+      {"category": "Groceries", "multiplier": 4, "cap_amount": 25000, "cap_period": "annual", "notes": "US supermarkets; 1x after $25k/calendar year"},
+      {"category": "Travel", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Flights booked direct or via amextravel.com; 5x on prepaid hotels via Amex Travel (new with 2026 refresh)"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 100000, "unit": "points", "min_spend": 8000, "window_days": 180, "estimated_value_usd": 2000},
+    "credits_notes": "'As high as' 100k via Apply with Confidence (offers vary by applicant); min spend raised from $6k to $8k in 2026. ~$424/yr in credits: $120 Uber Cash ($10/mo), $120 dining credit ($10/mo), $100 Resy ($50 semiannual), $84 Dunkin ($7/mo); new Hertz Five Star status",
+    "source_urls": ["https://www.americanexpress.com/us/credit-cards/card/gold-card/", "https://thepointsguy.com/news/american-express-gold-refresh-2026/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "The Platinum Card from American Express",
+    "issuer": "American Express",
+    "annual_fee": 895,
+    "reward_currency": "Amex Membership Rewards",
+    "point_value_cents": 2.0,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 5, "cap_amount": 500000, "cap_period": "annual", "notes": "Flights booked direct with airlines or via Amex Travel (1x after $500k/calendar year); also 5x prepaid hotels via Amex Travel"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 175000, "unit": "points", "min_spend": 12000, "window_days": 180, "estimated_value_usd": 3500},
+    "credits_notes": "'As high as' 175k via Apply with Confidence (offers vary). Heavy coupon book post-2025 refresh: $600 hotel credit (Amex Travel, semiannual), $400 Resy dining, $200 airline fee, $200 Uber Cash, $155 Walmart+, $300 Equinox, lululemon and digital entertainment credits, CLEAR Plus; Centurion/Priority Pass/Delta Sky Club lounge access",
+    "source_urls": ["https://www.americanexpress.com/us/credit-cards/card/platinum/", "https://thepointsguy.com/credit-cards/amex-platinum-current-offer/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "American Express Green Card",
+    "issuer": "American Express",
+    "annual_fee": 150,
+    "reward_currency": "Amex Membership Rewards",
+    "point_value_cents": 2.0,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Restaurants worldwide incl. takeout/delivery in US"},
+      {"category": "Travel", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Broad travel definition incl. flights, hotels, vacation rentals"},
+      {"category": "Transit", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Rideshare, parking, tolls, trains, buses"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 40000, "unit": "points", "min_spend": 3000, "window_days": 180, "estimated_value_usd": 800},
+    "credits_notes": "Standard 40k offer as of June 2026 (60k-75k offers have appeared historically); up to $209 annual CLEAR Plus credit; no foreign transaction fees",
+    "source_urls": ["https://www.americanexpress.com/us/credit-cards/card/green/", "https://upgradedpoints.com/credit-cards/reviews/american-express-green-card/benefits/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Citi Strata Premier",
+    "issuer": "Citi",
+    "annual_fee": 95,
+    "reward_currency": "Citi ThankYou Points",
+    "point_value_cents": 1.9,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Groceries", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Supermarkets"},
+      {"category": "Gas", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Gas stations and EV charging"},
+      {"category": "Travel", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Air travel and hotels; 10x on hotels, car rentals and attractions booked via Citi Travel"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 60000, "unit": "points", "min_spend": 4000, "window_days": 90, "estimated_value_usd": 1140},
+    "credits_notes": "$100 annual hotel credit on a single Citi Travel hotel booking of $500+; no foreign transaction fees. (75k offers occasionally run; 60k/$4k is the standard verified offer as of June 2026)",
+    "source_urls": ["https://www.citi.com/credit-cards/citi-strata-premier-credit-card", "https://onemileatatime.com/deals/citi-strata-card-bonus/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Bilt Blue Card",
+    "issuer": "Cardless (Column N.A., Mastercard)",
+    "annual_fee": 0,
+    "reward_currency": "Bilt Points",
+    "point_value_cents": 2.2,
+    "earn_rates": [
+      {"category": "Rent", "multiplier": 1.25, "cap_amount": null, "cap_period": null, "notes": "Up to 1.25x on rent/mortgage with no transaction fee under Bilt Card 2.0; actual housing multiplier is tiered based on everyday card spend in the same billing cycle"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": "Alternatively can elect 4% Bilt Cash on everyday (non-housing) spend instead of the points structure"}
+    ],
+    "signup_bonus": {"amount": 100, "unit": "USD", "min_spend": 0, "window_days": 90, "estimated_value_usd": 100},
+    "credits_notes": "Successor to the Wells Fargo Bilt Mastercard, which closed to new applicants with the Feb 2026 Bilt 2.0 launch; new lineup is Blue ($0), Obsidian ($95, adds 3x on choice of dining or groceries up to $25k/yr), Palladium ($495 premium). Welcome offer is $100 Bilt Cash on approval; no foreign transaction fees",
+    "source_urls": ["https://www.nerdwallet.com/credit-cards/news/bilt-launches-blue-obsidian-palladium", "https://newsroom.biltrewards.com/meetbiltcard2.0"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Wells Fargo Autograph",
+    "issuer": "Wells Fargo",
+    "annual_fee": 0,
+    "reward_currency": "Wells Fargo Rewards",
+    "point_value_cents": 1.6,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Travel", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Transit", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Gas", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Gas stations and EV charging"},
+      {"category": "Streaming", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Popular streaming services; also 3x on phone plans"},
+      {"category": "Other", "multiplier": 1, "cap_amount": null, "cap_period": null, "notes": null}
+    ],
+    "signup_bonus": {"amount": 20000, "unit": "points", "min_spend": 1000, "window_days": 90, "estimated_value_usd": 320},
+    "credits_notes": "No annual fee; transfers 1:1 to partners (JetBlue, Avianca, BA/Iberia/Aer Lingus, Air France-KLM, Cathay; 1:2 Choice) or 1 cent cash; up to $600 cellphone protection when paying phone bill with card; 2026 TPG No-Annual-Fee Card of the Year",
+    "source_urls": ["https://awardwallet.com/credit-cards/wells-fargo-rewards/autograph-card-offer/", "https://thepointsguy.com/credit-cards/reviews/wells-fargo-autograph-card-review/"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Chase Freedom Unlimited",
+    "issuer": "Chase",
+    "annual_fee": 0,
+    "reward_currency": "Chase UR",
+    "point_value_cents": 1.0,
+    "earn_rates": [
+      {"category": "Dining", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": "Restaurants incl. takeout and eligible delivery"},
+      {"category": "Drugstores", "multiplier": 3, "cap_amount": null, "cap_period": null, "notes": null},
+      {"category": "Travel", "multiplier": 1.5, "cap_amount": null, "cap_period": null, "notes": "5x on travel booked through Chase Travel portal only; non-portal travel earns base 1.5x"},
+      {"category": "Other", "multiplier": 1.5, "cap_amount": null, "cap_period": null, "notes": "Unlimited 1.5x on everything else"}
+    ],
+    "signup_bonus": {"amount": 250, "unit": "USD", "min_spend": 500, "window_days": 90, "estimated_value_usd": 250},
+    "credits_notes": "Elevated $250 (25,000 pts) offer verified live but ends ~6/11/2026; standard offer is $200/$500. Marketed as cash back but earns UR points; valued at 1c standalone — worth ~2x more if pooled with a Sapphire/Ink card for transfers",
+    "source_urls": ["https://www.doctorofcredit.com/chase-freedom-unlimited-250-bonus/", "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited"],
+    "as_of": "2026-06"
+  },
+  {
+    "name": "Capital One VentureOne Rewards",
+    "issuer": "Capital One",
+    "annual_fee": 0,
+    "reward_currency": "Capital One Miles",
+    "point_value_cents": 1.85,
+    "earn_rates": [
+      {"category": "Travel", "multiplier": 1.25, "cap_amount": null, "cap_period": null, "notes": "5x on hotels, vacation rentals and rental cars booked via Capital One Travel; otherwise flat 1.25x"},
+      {"category": "Other", "multiplier": 1.25, "cap_amount": null, "cap_period": null, "notes": "Unlimited 1.25x on every purchase"}
+    ],
+    "signup_bonus": {"amount": 20000, "unit": "points", "min_spend": 500, "window_days": 90, "estimated_value_usd": 370},
+    "credits_notes": "No annual fee, no foreign transaction fees; 0% intro APR on purchases for 15 months; full access to Capital One transfer partners",
+    "source_urls": ["https://www.capitalone.com/credit-cards/ventureone/", "https://www.nerdwallet.com/credit-cards/reviews/capital-one-ventureone"],
+    "as_of": "2026-06"
+  }
+]
